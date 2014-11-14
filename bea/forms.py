@@ -1,9 +1,9 @@
 from django import forms
 
 class LoginForm(forms.Form):
-    email = forms.CharField(
+    usuario = forms.CharField(
                 widget=forms.TextInput(attrs={'class' : 'form-control'}),
-                error_messages={'required': 'Ingresa tu email'}
+                error_messages={'required': 'Ingresa tu usuario'}
             )
     password = forms.CharField(
                 widget=forms.PasswordInput(attrs={'class' : 'form-control'}),

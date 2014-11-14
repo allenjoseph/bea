@@ -1,7 +1,9 @@
+# -*- encoding: utf-8 -*-
+
+from django.contrib.auth import authenticate, login
 from django.views.generic import TemplateView, FormView
 from bea.forms import LoginForm
 from bea.mixins import JsonResponseMixin
-
 
 class HomeView(JsonResponseMixin, TemplateView):
     template_name = 'index.html'
@@ -25,8 +27,21 @@ class LoginFormView(FormView):
     success_url = '/'
 
     def form_valid(self, form):
-        email = form.cleaned_data['email']
+        usuario = form.cleaned_data['usuario']
         password = form.cleaned_data['password']
 
+        user = authenticate(username=usuario, password=password)
+        if user is not None:
+            if user.is_active:
+                login(self.request, user)
+            else:                
+                form.add_error(None, "El usuario ha sido deshabilitado.")
+                return super(LoginFormView, self).form_invalid(form)
+        else:
+            form.add_error(None, "El usuario o contraseña son incorrectos.")
+            return super(LoginFormView, self).form_invalid(form)
+
+        return super(LoginFormView, self).form_valid(form)
+            
 class UbicameView(JsonResponseMixin, TemplateView):
     pass
