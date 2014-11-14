@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 from django.contrib.auth import authenticate, login
+from django.core.urlresolvers import reverse_lazy
 from django.views.generic import TemplateView, FormView
 from bea.forms import LoginForm
 from bea.mixins import JsonResponseMixin
@@ -42,6 +43,13 @@ class LoginFormView(FormView):
             return super(LoginFormView, self).form_invalid(form)
 
         return super(LoginFormView, self).form_valid(form)
+
+    def get_success_url(self):
+        next_url = self.request.GET.get('next', False)
+        if next_url:
+            self.success_url = next_url
+        return super(LoginFormView, self).get_success_url()
+
             
 class UbicameView(JsonResponseMixin, TemplateView):
     pass
