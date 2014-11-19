@@ -6,6 +6,9 @@ from django.views.generic import TemplateView, FormView
 from bea.forms import LoginForm
 from bea.mixins import JsonResponseMixin
 
+class PreviousView(JsonResponseMixin, TemplateView):
+    template_name = 'previous.html'
+
 class HomeView(JsonResponseMixin, TemplateView):
     template_name = 'index.html'
 

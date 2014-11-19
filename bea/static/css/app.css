@@ -1,0 +1,32 @@
+.previous{
+    overflow: hidden;
+    background: #F5F5DC;
+}
+.previous h1,
+.previous h2,
+.previous h3,
+.previous h4,
+.previous h5,
+.previous h6{
+    padding: 5px 20px;
+    font-family: 'Great Vibes', cursive;
+    color: #333;
+}
+
+.previous .logo{
+    margin-top: 20px;
+}
+.previous footer{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.previous footer h3{
+    position: relative;
+}
+.previous footer h3 i{
+    position: absolute;
+    left: 0;
+    top: 15px;
+    font-size: 1.5em;
+}
