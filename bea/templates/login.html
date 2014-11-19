@@ -3,31 +3,32 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<div class="col-md-6 col-md-offset-3">
+<div class="medium-6 medium-offset-3 columns">
     <form class="form-horizontal" action="" method="post">
         {% csrf_token %}
         
         {% for field in form %}
-        <div class="form-group">
-            <label for="{{ field.id_for_label }}" class="col-lg-2 control-label">{{ field.label }}</label>
-            <div class="col-lg-10">
-                {{ field }}
+        <div class="row">
+            <div class="medium-12 columns">
+                <label for="{{ field.id_for_label }}">{{ field.label }}
+                    {{ field }}
+                </label>
                 {% for error in field.errors %}
-                <span class="label label-danger">{{ error }}</span>                    
+                <span class="error">{{ error }}</span>                    
                 {% endfor %}
             </div>
         </div>
         {% endfor %}
-        <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
+        <div class="row">
+            <div class="medium-12 columns">
                 {% for error in form.non_field_errors %}
-                    <span class="label label-danger">{{ error }}</span>
+                <span class="error">{{ error }}</span>
                 {% endfor %}
             </div>
         </div>        
-        <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-                <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="row">
+            <div class="medium-10 medium-offset-2 columns">
+                <button type="submit" class="button">Submit</button>
             </div>
         </div>
 </div>
