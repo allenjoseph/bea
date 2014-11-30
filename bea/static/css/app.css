@@ -1,6 +1,6 @@
 .previous{
     overflow: hidden;
-    background: #F5F5DC;
+    background: rgba(245, 245, 220, 0.5);
 }
 .previous h1,
 .previous h2,
@@ -19,14 +19,15 @@
 .previous footer{
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    text-align: center;
+    width: 100%;
 }
 .previous footer h3{
     position: relative;
 }
 .previous footer h3 i{
-    position: absolute;
+    /* position: absolute;
     left: 0;
     top: 15px;
-    font-size: 1.5em;
+    font-size: 1.5em; */
 }
