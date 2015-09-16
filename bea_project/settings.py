@@ -61,12 +61,8 @@ WSGI_APPLICATION = 'bea_project.wsgi.application'
 
 DATABASES = {
     'default': {
-    	'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bea',
-        'USER': 'root',
-        'PASSWORD': '@llen',
-        'HOST': 'localhost',
-        'PORT': '3306'
+    	'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'bea.db')
     }
 }
 
